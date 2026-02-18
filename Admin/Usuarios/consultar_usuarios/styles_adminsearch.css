@@ -1,0 +1,506 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #F8F9FA;
+}
+
+nav, ul, header, div, footer, a, li, label, body{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ------ HEADER SECTION ------*/
+
+.header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background: #022859;
+    color: #F2F2F2;
+    min-width: 100%;
+}
+
+.header__logo-container {
+    user-select: none;
+    display: flex;
+    padding-right: 20px;
+}
+
+.header__logo {
+    max-width: 100%;
+    width: 250px;
+    height: 60px;
+    margin: 10px 0 10px 20px;
+}
+
+.header__logo2 {
+    max-width: 100%;
+    width: 80px;
+    height: 70px;
+    margin: 5px 0 0 20px;
+}
+
+.header__user-logo{
+    width: 20px;
+    margin: 0 6px 0 2px;
+}
+
+.user-dropdown-container {
+    position: relative; 
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#open__button {
+    display: none;
+}
+
+.header__open-nav-button {
+    display: flex;
+    user-select: none;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 20px;
+    color: #143c5b;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 10px 0 0;
+    margin-left: 20px;
+}
+
+.header__open-nav-button:hover{
+    cursor: pointer;
+}
+
+.header__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 120px;
+    background: #022859;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.header__nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header__nav-item a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.header__nav-item a:hover {
+    background: #033a7d;
+}
+
+#open__button:checked ~ .header__nav {
+    display: block;
+}
+
+
+/* ------ HEADER END ------*/
+
+
+/* ------ NAV SECTION ------*/
+
+.grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    grid-template-areas: 
+    "nav main";
+    grid-auto-flow: dense;
+    width: 100%;
+}
+.nav__search {
+    grid-area: nav;
+    background-color: #415A77; 
+    padding: 20px 0;
+}
+
+.nav__search ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo del Título del Menú (Cerrado) */
+summary {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #022859;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: background 0.3s;
+    border-bottom: 1px solid #1B263B;
+}
+
+summary:hover {
+    background-color: #00ACB1; 
+}
+
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Estilo para los iconos */
+.menu-icon {
+    width: 40px;      
+    height: 40px;
+    margin-right: 15px;
+    object-fit: contain;      
+}
+/* Estilo de las opciones desplegadas */
+.nav__search li {
+    background-color: rgba(255, 255, 255, 0.05); 
+}
+
+.nav__search a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 40px; 
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.nav__search li:hover {
+    background-color: #fff;
+}
+
+.nav__search li:hover a {
+    color: #000;
+    font-weight: bold;
+}
+
+details[open] summary {
+    background-color: #1B263B; /* Color diferente cuando está abierto */
+    border-bottom: 2px solid #00ACB1;
+}
+
+
+/* ------ NAV END ------*/
+
+
+/* ------ MAIN SECTION ------*/
+
+
+.password-container {
+    display: flex; /* Habilita el modo flexbox */
+    align-items: center; /* Centra verticalmente los elementos */
+    width: 100%; 
+}
+
+/* Estilo para el campo de texto de la contraseña */
+.password-container input[type="password"] {
+    /* Ocupa casi todo el espacio disponible */
+    flex-grow: 1; 
+}
+
+.show-password-box {
+    margin-left: 10px; /* Agrega un pequeño espacio entre el input y el checkbox */
+    flex-shrink: 0; /* Asegura que el checkbox no se encoja */
+}
+
+
+main {
+    grid-area: main;
+    min-width: 100%;
+}
+
+.table-wrapper {
+    /* CLAVE: Habilita la barra de desplazamiento horizontal si es necesario */
+    overflow-x: auto; 
+    /* Asegura que el contenedor ocupe todo el ancho disponible */
+    width: 100%; 
+}
+
+.table-wrapper th, 
+.table-wrapper td {
+
+    min-width: 150px;
+    text-align: center; /* Centra el texto horizontalmente */
+    vertical-align: middle; /*Centra el texto verticalmente */
+}
+
+.table-wrapper th {
+
+    white-space: nowrap; /* Evita que el texto se salte de línea */
+}
+
+
+.form_input input, 
+.form_input select,
+.form_input textarea {
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+
+
+.edit__h1 {
+    grid-area: titulo; 
+    text-align: center; 
+    margin-top: 0; 
+    margin-bottom: 30px; 
+}
+
+/* Clases de Área Genéricas (Se usan en todos los formularios) */
+.grid-area-user { grid-area: user; }
+.grid-area-pass { grid-area: pass; }
+.grid-area-nombre { grid-area: nombre; }
+.grid-area-apellido { grid-area: apellido; }
+.grid-area-cedula { grid-area: cedula; }
+.grid-area-fecha { grid-area: fecha; }
+.grid-area-tel { grid-area: tel; }
+.grid-area-email { grid-area: email; }
+.grid-area-cargo { grid-area: cargo; }
+.grid-area-enviar { 
+    grid-area: enviar; 
+    justify-self: end; 
+    align-self: center;
+    margin-right: 10px; 
+}
+
+.form-edit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
+    grid-template-areas: 
+        "titulo titulo titulo titulo"
+        "user pass nombre apellido"
+        "cedula fecha tel email"
+        "cargo . . enviar";
+}
+
+
+
+
+
+form {
+    background: transparent;
+    padding: 40px;
+    width: 100%;
+    margin: 0;
+    background-color: #F8F9FA;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+form label {
+    color: #022859;
+    font-weight: bold;
+    font-size: 0.9em;
+    line-height: 2;
+}
+
+
+#h1{
+    color: #0056b3;
+    margin: 20px 0 0 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: BOLD;
+    font-size: 1.4em;
+    padding: 10px;
+}
+
+.form_input{
+    padding: 2px 20px;
+}
+
+input, .text_area, select{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    border-left: 2px solid #999;
+    box-shadow: 0 0 5px #bbb;
+    border-radius: 5px;
+    color: #222;
+}
+
+input:focus, select:focus {
+    border-color: #00B4D8; 
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 180, 216, 0.3);
+}
+
+option{
+    color: #F8F9FA;
+    background-color: #222;
+}
+
+
+.btn__enviar{
+    position: relative;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 40px 10px 10px auto; 
+    width: 100px;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+
+
+/* ------ MAIN END ------*/
+
+/* ------ MODAL SECTION ------*/
+
+/* ESTILOS DEL MODAL (POPUP) */
+/* ------------------------------------ */
+
+/* El contenedor principal del modal (pantalla de fondo) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija para cubrir toda la pantalla */
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    backdrop-filter: blur(2px); /* Efecto de desenfoque */
+}
+
+/* El contenido del modal (la caja blanca) */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde arriba y centrado horizontalmente */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho base */
+    max-width: 400px; /* Ancho máximo para que no sea muy grande */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+/* Icono (El check mark o la X) */
+.modal-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-icon svg {
+    width: 50px;
+    height: 50px;
+}
+
+/* Estilos específicos por tipo de alerta */
+.modal-exito .modal-icon {
+    background-color: #e6ffed; /* Fondo muy claro para el check */
+    color: #28a745; /* Verde para el check */
+}
+.modal-error .modal-icon {
+    background-color: #ffe6e6; /* Fondo muy claro para el error */
+    color: #dc3545; /* Rojo para la X */
+}
+
+.modal-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-body {
+    margin-bottom: 25px;
+    color: #666;
+    word-wrap: break-word; /* Importante para mensajes de error largos */
+}
+
+/* Botón OK */
+.modal-button {
+    background-color: #007bff; /* Azul, similar a la imagen de referencia */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.modal-button:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de cierre (la 'x') */
+.modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+.modal-close:hover,
+.modal-close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ------ MODAL ENDS ------*/
+
+
+
+
+/* ------ FOOTER SECTION ------*/
+
+footer {
+    display: flex;
+    border: 2px solid #fff2;
+    backdrop-filter: blur(8px);
+    font-weight: bold;
+    box-shadow: 0 0 10px #0002;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    background-color: #022859;
+    width: 100%;
+    height: 2.3rem;
+    color: #fff;
+}
+
+/* ------ FOOTER END ------*/
